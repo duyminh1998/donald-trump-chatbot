@@ -1,3 +1,4 @@
+![Trump Bot](https://img.thedailybeast.com/image/upload/c_crop,d_placeholder_euli9k,h_1439,w_2560,x_0,y_0/dpr_2.0/c_limit,w_740/fl_lossy,q_auto/v1492108180/galleries/2016/11/07/2016-s-best-election-memes/160525-pepe-trump-tease_h8fkou)
 # donald-trump-chatbot
 This is a chatbot that learns from Donald Trump's tweets to replicate the experience of talking to your very own Chief Executive. 
 
