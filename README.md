@@ -2,7 +2,7 @@
 # donald-trump-chatbot
 This is a chatbot that learns from Donald Trump's tweets to replicate the experience of talking to your very own Chief Executive. 
 
-### Goals
+# Goals
 - ~Scrape Tweets~
 - ~Script Trump Bot~
 - Use Flask to create website for bot, allowing us to retrieve more user - bot response
