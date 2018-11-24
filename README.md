@@ -9,6 +9,8 @@ This is a chatbot that learns from Donald Trump's tweets to replicate the experi
 - Implement rating system for each user - bot interaction
 - Improve ML model
 
+# Timeline
+
 ### 11/24/18
 We are still in the processing of pairing user response and possible bot responses. Tensorflow and deep learning might be a better model for our chatbot (longevity)
 
