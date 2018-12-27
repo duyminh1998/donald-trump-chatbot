@@ -80,7 +80,7 @@ def accept(data):
 if __name__ == '__main__':
 	try:
 		create_table()
-		after_utc = 0
+		after_utc = 1458350726
 		number_processed = 0
 		paired_rows = 0
 		continue_scrape = True
