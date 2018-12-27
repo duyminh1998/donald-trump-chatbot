@@ -1,6 +1,7 @@
 import sqlite3
 import json
 import requests
+import smtplib
 
 connection = sqlite3.connect('database/{}.db'.format('donald_trump_chatbot'))
 c = connection.cursor()
@@ -118,8 +119,35 @@ if __name__ == '__main__':
 				connection.commit()
 				after_utc = parsed_json['data'][-1]['created_utc']
 				number_processed += 1
-				print('Number of pages processed: {}'.format(number_processed), 'Current UTC: {}'.format(after_utc), 'Paird rows: {}'.format(paired_rows))
+				print('Number of pages processed: {}'.format(number_processed), 'Current UTC: {}'.format(after_utc), 'Paired rows: {}'.format(paired_rows))
 			else:
 				continue_scrape = False
 	except Exception as e:
-		print('Main Loop Error: ', str(e))
+		# print('Main Loop Error: ', str(e))
+		gmail_user = 'minhhua12345@gmail.com'  
+		gmail_password = 'Nofight12345'
+
+		sent_from = gmail_user  
+		to = 'minhhua12345@gmail.com'
+		subject = "Main loop error: " + str(e)
+		body = "Main loop error: " + str(e)
+
+		email_text = """  
+		From: {}  
+		To: {} 
+		Subject: {}
+
+		{}
+		""".format(sent_from, to, subject, body)
+
+		try:  
+		    server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+		    server.ehlo()
+		    server.login(gmail_user, gmail_password)
+		    server.sendmail(sent_from, to, email_text)
+		    server.close()
+
+		    print ('Email sent!')
+		except Exception as e:  
+		    print ("Email error: ", e)
+
