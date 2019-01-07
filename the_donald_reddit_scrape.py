@@ -81,7 +81,11 @@ def accept(data):
 if __name__ == '__main__':
 	try:
 		create_table()
-		after_utc = 1458350726
+		c.execute("""DELETE FROM qa_pair WHERE parent_data IS NULL""")
+		connection.commit()
+		query = """SELECT created_utc FROM qa_pair ORDER BY ID DESC LIMIT 1"""
+		c.execute(query)
+		after_utc = c.fetchone()[0]
 		number_processed = 0
 		paired_rows = 0
 		continue_scrape = True
@@ -123,7 +127,7 @@ if __name__ == '__main__':
 			else:
 				continue_scrape = False
 	except Exception as e:
-		# print('Main Loop Error: ', str(e))
+		print('Main Loop Error: ', str(e))
 		gmail_user = 'minhhua12345@gmail.com'  
 		gmail_password = 'Nofight12345'
 
@@ -150,4 +154,3 @@ if __name__ == '__main__':
 		    print ('Email sent!')
 		except Exception as e:  
 		    print ("Email error: ", e)
-
